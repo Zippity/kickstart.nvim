@@ -86,7 +86,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 
 local powershell_options = {
   shell = vim.fn.executable 'pwsh' == 1 and 'pwsh' or 'powershell',
-  shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;',
+  shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;',
   shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait',
   shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode',
   shellquote = '',
@@ -246,10 +246,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'loctvl842/monokai-pro.nvim', -- Monokai Pro Theme
-  {
-    'jzelinskie/monokai-soda.vim',
-    dependencies = { 'tjdevries/colorbuddy.vim' },
-  },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
@@ -302,34 +298,34 @@ require('lazy').setup({
         -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
         -- default whick-key.nvim defined Nerd Font icons, otherwise define a string table
         keys = vim.g.have_nerd_font and {} or {
-          Up = '<Up> ',
-          Down = '<Down> ',
-          Left = '<Left> ',
-          Right = '<Right> ',
-          C = '<C-…> ',
-          M = '<M-…> ',
-          D = '<D-…> ',
-          S = '<S-…> ',
-          CR = '<CR> ',
-          Esc = '<Esc> ',
-          ScrollWheelDown = '<ScrollWheelDown> ',
-          ScrollWheelUp = '<ScrollWheelUp> ',
-          NL = '<NL> ',
-          BS = '<BS> ',
-          Space = '<Space> ',
-          Tab = '<Tab> ',
-          F1 = '<F1>',
-          F2 = '<F2>',
-          F3 = '<F3>',
-          F4 = '<F4>',
-          F5 = '<F5>',
-          F6 = '<F6>',
-          F7 = '<F7>',
-          F8 = '<F8>',
-          F9 = '<F9>',
-          F10 = '<F10>',
-          F11 = '<F11>',
-          F12 = '<F12>',
+          --Up = '<Up> ',
+          --Down = '<Down> ',
+          --Left = '<Left> ',
+          --Right = '<Right> ',
+          --C = '<C-…> ',
+          --M = '<M-…> ',
+          --D = '<D-…> ',
+          --S = '<S-…> ',
+          --CR = '<CR> ',
+          --Esc = '<Esc> ',
+          --ScrollWheelDown = '<ScrollWheelDown> ',
+          --ScrollWheelUp = '<ScrollWheelUp> ',
+          --NL = '<NL> ',
+          --BS = '<BS> ',
+          --Space = '<Space> ',
+          --Tab = '<Tab> ',
+          --F1 = '<F1>',
+          --F2 = '<F2>',
+          --F3 = '<F3>',
+          --F4 = '<F4>',
+          --F5 = '<F5>',
+          --F6 = '<F6>',
+          --F7 = '<F7>',
+          --F8 = '<F8>',
+          --F9 = '<F9>',
+          --F10 = '<F10>',
+          --F11 = '<F11>',
+          --F12 = '<F12>',
         },
       },
 
@@ -850,13 +846,13 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
+    'loctvl842/monokai-pro.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'monokai-pro-spectrum'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
